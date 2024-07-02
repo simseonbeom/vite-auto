@@ -1,0 +1,55 @@
+
+
+
+.container{
+  max-width: 400px;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  border: 1px solid black;
+}
+
+
+.container h1{
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+
+.container hr{
+  height: 4px;
+  background-color: black;
+  margin: 2rem 0;
+}
+
+.container form{
+  margin-bottom: 5rem;
+}
+
+.container input{
+  border: 1px solid rgb(177,177,177);
+  padding: 1rem;
+  width: 100%;
+  min-width: 200px;
+  margin: 0.2rem 0;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
