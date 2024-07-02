@@ -2,10 +2,12 @@
 
 
 
-import "@/pages/product/product.css"
-import { tiger,insertLast, comma, setDocumentTitle } from "kind-tiger";
-import getPbImageURL from '@/api/getPbImageURL'
-import gsap from 'gsap'
+import "@/pages/product/product.css";
+import { comma, insertLast, setDocumentTitle } from "kind-tiger";
+import getPbImageURL from '@/api/getPbImageURL';
+import gsap from 'gsap';
+import pb from '@/api/pocketbase';
+
 
 
 
@@ -14,12 +16,18 @@ setDocumentTitle('29CM / 상품목록');
 
 async function renderProductItem(){
 
-  const response = await tiger.get(`${import.meta.env.VITE_PB_API}/collections/products/records`)
+  const productData = await pb
+  .collection('products')
+  .getFullList({
+    sort: '-created'
+  }); // SDK
 
-  const productsData = response.data.items;
+
+  // const response = await tiger.get(`${import.meta.env.VITE_PB_API}/collections/products/records`) // Fetch API
+  // const productsData = response.data.items;
 
 
-  productsData.forEach((item)=>{
+  productData.forEach((item)=>{
 
     const discount = item.price * (item.ratio * 0.01);
 
