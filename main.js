@@ -1,12 +1,11 @@
 
 
-
+import defaultAuthData from '@/api/defaultAuthData';
 import getPbImageURL from '@/api/getPbImageURL';
-import { getStorage, insertLast, getNode, deleteStorage, setStorage } from 'kind-tiger'
+import pb from '@/api/pocketbase';
+import gsap from 'gsap';
+import { getNode, getStorage, insertLast, setStorage } from 'kind-tiger';
 import '/src/styles/global.css';
-import pb from '@/api/pocketbase'
-import gsap from 'gsap'
-
 
 const tl = gsap.timeline({
   defaults:{
@@ -45,7 +44,7 @@ async function logout(){
           if(confirm('정말 로그아웃 하실겁니까?')){
             pb.authStore.clear();
             // deleteStorage('auth');
-            setStorage('auth',)
+            setStorage('auth',defaultAuthData)
 
             location.reload()
           }
