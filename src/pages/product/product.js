@@ -2,7 +2,7 @@
 
 
 import "@/pages/product/product.css";
-import { comma, insertLast, setDocumentTitle } from "kind-tiger";
+import { comma, insertLast, setDocumentTitle, getStorage } from "kind-tiger";
 import getPbImageURL from '@/api/getPbImageURL';
 import gsap from 'gsap';
 import pb from '@/api/pocketbase';
@@ -26,6 +26,10 @@ async function renderProductItem(){
   // const productsData = response.data.items;
 
 
+  const {isAuth} = await getStorage('auth');
+
+  console.log( isAuth );
+
   productData.forEach((item)=>{
 
     const discount = item.price * (item.ratio * 0.01);
@@ -34,6 +38,7 @@ async function renderProductItem(){
       <li class="product-item">
           <div>
             <figure>
+              <a href="/"></a>
               <img src="${getPbImageURL(item)}" alt="" />
             </figure>
             <span class="brand">${item.brand}</span>

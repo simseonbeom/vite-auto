@@ -2,7 +2,7 @@
 
 
 import getPbImageURL from '@/api/getPbImageURL';
-import { getStorage, insertLast, getNode, deleteStorage } from 'kind-tiger';
+import { getStorage, insertLast, getNode, deleteStorage, setStorage } from 'kind-tiger'
 import '/src/styles/global.css';
 import pb from '@/api/pocketbase'
 import gsap from 'gsap'
@@ -44,7 +44,9 @@ async function logout(){
 
           if(confirm('정말 로그아웃 하실겁니까?')){
             pb.authStore.clear();
-            deleteStorage('auth');
+            // deleteStorage('auth');
+            setStorage('auth',)
+
             location.reload()
           }
           
