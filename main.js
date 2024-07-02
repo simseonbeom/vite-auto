@@ -5,7 +5,17 @@ import getPbImageURL from '@/api/getPbImageURL';
 import { getStorage, insertLast, getNode, deleteStorage } from 'kind-tiger';
 import '/src/styles/global.css';
 import pb from '@/api/pocketbase'
+import gsap from 'gsap'
 
+
+const tl = gsap.timeline({
+  defaults:{
+    opacity:0
+  }
+});
+
+tl.from('.visual',{delay:0.3,  y:30 })
+tl.from('h2 > span',{  x:-30 },'-=0.2')
 
 
 async function logout(){
@@ -38,13 +48,9 @@ async function logout(){
             location.reload()
           }
           
-          
-
         }
         
         logout.addEventListener('click',handleLogout)
-
-        
 
     }
   }
