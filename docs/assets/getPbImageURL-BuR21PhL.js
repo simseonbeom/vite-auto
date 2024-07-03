@@ -1,0 +1,1 @@
+import{b as s}from"./index-DKBx4g_6.js";function i(t,e){typeof t=="string"&&(t=s(t)),t.insertAdjacentHTML("beforeend",e)}const n={isAuth:!1,user:null,token:""};function o(t,e="photo"){return`http://127.0.0.1:8090/api/files/${t.collectionId}/${t.id}/${t[e]}`}export{n as d,o as g,i};
